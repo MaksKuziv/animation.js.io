@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Ukrainian Penguin</title>
+  <style>
+    :root {
+      --penguin-size: 300px;
+      --penguin-skin: blue;
+      --penguin-belly: yellow;
+      --penguin-beak: yellow;
+    }
+
+    @media (max-width: 350px) {
+      :root {
+        --penguin-size: 200px;
+        --penguin-skin: blue;
+      }
+    }
+
+    .penguin {
+      position: relative;
+      margin: auto;
+      display: block;
+      margin-top: 8%;
+      width: var(--penguin-size, 300px);
+      height: var(--penguin-size, 300px);
+      transition: transform 0.3s ease-in-out;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .right-cheek, .left-cheek, .belly, .penguin-top, .penguin-bottom, .right-hand, .left-hand, .right-feet, .left-feet, .right-eye, .left-eye, .blush-right, .blush-left, .beak-top, .beak-bottom {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .right-cheek {
+      top: 15%;
+      left: 35%;
+      background: var(--penguin-belly, yellow);
+      width: 60%;
+      height: 70%;
+      border-radius: 70% 70% 60% 60%;
+    }
+
+    .left-cheek {
+      top: 15%;
+      left: 5%;
+      background: var(--penguin-belly, yellow);
+      width: 60%;
+      height: 70%;
+      border-radius: 70% 70% 60% 60%;
+    }
+
+    .belly {
+      top: 60%;
+      left: 2.5%;
+      background: var(--penguin-belly, yellow);
+      width: 95%;
+      height: 100%;
+      border-radius: 120% 120% 100% 100%;
+    }
+
+    .penguin-top {
+      top: 10%;
+      left: 25%;
+      background: var(--penguin-skin, blue);
+      width: 50%;
+      height: 45%;
+      border-radius: 70% 70% 60% 60%;
+    }
+
+    .penguin-bottom {
+      top: 40%;
+      left: 23.5%;
+      background: var(--penguin-skin, blue);
+      width: 53%;
+      height: 45%;
+      border-radius: 70% 70% 100% 100%;
+    }
+
+    .right-hand {
+      top: 5%;
+      left: 25%;
+      background: var(--penguin-skin, blue);
+      width: 30%;
+      height: 60%;
+      border-radius: 30% 30% 120% 30%;
+      transform: rotate(130deg);
+      z-index: -1;
+      animation: wave 3s infinite linear;
+      transform-origin: 0% 0%;
+    }
+
+    /* Віталій - найкраще ім'я */
+
+    @keyframes wave {
+      0%, 100% {
+        transform: rotate(130deg);
+      }
+      50% {
+        transform: rotate(110deg);
+      }
+    }
+
+    .left-hand {
+      top: 0%;
+      left: 75%;
+      background: var(--penguin-skin, blue);
+      width: 30%;
+      height: 60%;
+      border-radius: 30% 30% 30% 120%;
+      transform: rotate(-45deg);
+      z-index: -1;
+    }
+
+    .right-feet {
+      top: 85%;
+      left: 60%;
+      background: var(--penguin-beak, yellow);
+      width: 15%;
+      height: 30%;
+      border-radius: 50% 50% 50% 50%;
+      transform: rotate(-80deg);
+      z-index: -2222;
+    }
+
+    .left-feet {
+      top: 85%;
+      left: 25%;
+      background: var(--penguin-beak, yellow);
+      width: 15%;
+      height: 30%;
+      border-radius: 50% 50% 50% 50%;
+      transform: rotate(80deg);
+      z-index: -2222;
+    }
+
+    .right-eye, .left-eye {
+      top: 45%;
+      background: black;
+      width: 15%;
+      height: 17%;
+      border-radius: 50%;
+    }
+
+    .right-eye {
+      left: 60%;
+    }
+
+    .left-eye {
+      left: 25%;
+    }
+
+    .sparkle {
+      top: 25%;
+      left: -23%;
+      background: white;
+      width: 150%;
+      height: 100%;
+      border-radius: 50%;
+    }
+
+    .blush-right, .blush-left {
+      background: pink;
+      width: 15%;
+      height: 10%;
+      border-radius: 50%;
+    }
+
+    .blush-right {
+      top: 65%;
+      left: 15%;
+    }
+
+    .blush-left {
+      top: 65%;
+      left: 70%;
+    }
+
+    .beak-top, .beak-bottom {
+      background: var(--penguin-beak, yellow);
+      border-radius: 50%;
+    }
+
+    .beak-top {
+      top: 60%;
+      left: 40%;
+      width: 20%;
+      height: 10%;
+    }
+
+    .beak-bottom {
+      top: 65%;
+      left: 42%;
+      width: 16%;
+      height: 10%;
+    }
+
+    body {
+      background: #c6faf1;
+    }
+
+    .penguin * {
+      position: absolute;
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%) rotate(15deg);
+      background: white;
+      border-radius: 50px;
+      width: 200px;
+      height: 100px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 3s ease-in-out infinite;
+      animation-timing-function: linear;
+    }
+
+    .speech-bubble:before {
+      content: '';
+      position: absolute;
+      bottom: -20px;
+      left: 20%;
+      width: 0;
+      height: 0;
+      border: 20px solid transparent;
+      border-top-color: white;
+      border-bottom: 0;
+      margin-left: -20px;
+      margin-bottom: -20px;
+    }
+
+    .speech-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: black;
+      transform: rotate(-15deg);
+    }
+
+    /* Віталій - найкраще ім'я */
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="penguin">
+    <div class="penguin-bottom">
+      <div class="right-hand"></div>
+      <div class="left-hand"></div>
+      <div class="right-feet"></div>
+      <div class="left-feet"></div>
+    </div>
+    <div class="penguin-top">
+      <div class="right-cheek"></div>
+      <div class="left-cheek"></div>
+      <div class="belly"></div>
+      <div class="right-eye">
+        <div class="sparkle"></div>
+      </div>
+      <div class="left-eye">
+        <div class="sparkle"></div>
+      </div>
+      <div class="blush-right"></div>
+      <div class="blush-left"></div>
+      <div class="beak-top"></div>
+      <div class="beak-bottom"></div>
+    </div>
+    <!-- Віталій - найкраще ім'я -->
+    <div class="speech-bubble">
+      <div class="speech-text">Привіт!</div>
+    </div>
+  </div>
+</body>
+</html>
